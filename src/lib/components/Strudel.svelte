@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let { song } = $props();
+	let { song, isDisplayed } = $props();
 
 	onMount(async () => {
 		// @ts-ignore
@@ -14,4 +14,6 @@
 	});
 </script>
 
-<strudel-editor code={song}> </strudel-editor>
+<div style:display={isDisplayed == false ? 'none' : ''}>
+	<strudel-editor id="repl" code={song}> </strudel-editor>
+</div>
