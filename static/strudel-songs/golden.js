@@ -7,6 +7,8 @@ const verseProgression = "<C:Major G:Major D:Major E:Minor>"
 const chorusProgression = "<C:Major D:Major [G:Major F#:locrian] E:minor>"
 const slowBass = n("0").struct("<x x [x x] x>").sound("gm_fretless_bass")
 
+let filterMuted = 1500;
+let filterFull = 3500;
 const drivingBass = n("0").struct("[x x x]*4")
 .layer(
     (x) => x.sound("gm_acoustic_bass").velocity("[0.75 1 1]*4"),
@@ -15,11 +17,11 @@ const drivingBass = n("0").struct("[x x x]*4")
 )
 .orbit(2);
 
-const piano = n("[0,2,4]").struct("<x x [x x] x>").sound("piano").lpf(1500)
+const piano = n("[0,2,4]").struct("<x x [x x] x>").sound("piano, gm_string_ensemble_1").lpf(1500)
 const pumpSynth = n("[0,2,4]").struct("x*6").layer(
   (x) => x.sound("saw").add(note("0")).gain(.69),
   (x) => x.sound("sine").add(note("12"))
-).orbit(2).lpf(1500).decay(1.2).sustain(.5)
+).orbit(2).decay(1.2).sustain(.5)
 const drums = stack(
   n("0").struct("x!4")
     .layer(
@@ -73,28 +75,38 @@ const chorus2 = cat(
   
 console.log(chorus1)
 vocals: arrange(
-  [8, versePart1],
-  [8, versePart2],
-  [8, prechorus],
-  [8, chorus1],
-  [8, chorus2]
-).sound("piano").scale("G:Major").scaleTranspose("<-1>")
+  [8, versePart1.lpf(filterMuted)],
+  [8, versePart2.lpf(filterMuted)],
+  [8, prechorus.lpf(filterMuted)],
+  [8, chorus1.lpf(filterFull)],
+  [8, chorus2.lpf(filterFull)]
+)
+  .layer(
+    (x) => x.sound("triangle"),
+    (x) => x.sound("saw")
+  )
+  .room(1)
+  .delay(.5)
+  .delayfeedback(.69)
+  .sustain(1.2)
+  .decay(.5)
+  .scale("G:Major").scaleTranspose("<-1>")
 
 backingTracks: arrange(
   [16, stack(
     drivingBass.scale(verseProgression).transpose("-12"),
-    piano.scale(verseProgression),
+    piano.lpf(2000).orbit(2).scale(verseProgression),
     drums
 
  )],
   [8, stack(
     slowBass.scale(chorusProgression).transpose("-12"),
-    piano.scale(chorusProgression)
+    piano.lpf(3000).scale(chorusProgression)
   )],
   [16, stack(
     drivingBass.scale(chorusProgression).transpose("-12"),
     piano.scale(chorusProgression),
-    pumpSynth.scale(chorusProgression),
+    pumpSynth.lpf(3000).scale(chorusProgression),
     drums
 
   )]
