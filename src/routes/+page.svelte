@@ -4,6 +4,6 @@
 	const { data } = $props();
 </script>
 
-<h1>Strudel Showcase Page</h1>
+<h1>Chaos Control</h1>
 <StrudelButtons isHomepage={true} />
 <Strudel song={data.song} isDisplayed={false} />

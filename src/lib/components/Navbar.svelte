@@ -15,18 +15,27 @@
 	nav {
 		--auto-column-size: 250px;
 		height: fit-content;
-		justify-self: end;
+		width: fit-content;
+		grid-area: nav;
+		border: var(--box-border);
+		justify-content: 'center';
+		display: flex;
+		width: 100%;
 		@media (width > 500px) {
-			/* it does not wrap correctly without this */
-			--auto-column-size: 100px;
+			display: flex;
+			flex-direction: 'column';
 			max-width: 75ch;
-			justify-content: end;
+			justify-content: 'flex-start';
+			align-items: 'flex-start';
 		}
 
 		& > a {
 			text-decoration: none;
 			color: var(--app-text-color) !important;
 			padding: 1rem 2rem;
+			@media (width > 550px) {
+				max-width: 30ch;
+			}
 
 			&:visited {
 				color: var(--app-text-color);

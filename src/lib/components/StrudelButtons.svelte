@@ -45,3 +45,11 @@
 		<button class="shadow-button" onclick={stop}>Stop</button>
 	</div>
 </section>
+
+<style>
+	section {
+		border: 2px solid var(--app-text-color);
+		padding: 1em;
+		max-width: 50ch;
+	}
+</style>

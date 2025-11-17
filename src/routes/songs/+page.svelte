@@ -1,5 +1,13 @@
 <script lang="ts">
-	const songs = ['a-little-roll'];
+	const songs = [
+		{ title: 'A Little Roll Never Hurt Anyone', href: 'a-little-roll' },
+		{ title: 'Golden (Originally by HUNTR/X)', href: 'golden' },
+		{ title: 'Good Luck Babe (Originally by Chappel Roan)', href: 'good-luck-babe' },
+		{ title: 'Nighttime Chug', href: 'nighttime-chug' },
+		{ title: 'Rainy Afternoon Serenade', href: 'rainy-afternoon-serenade' },
+		{ title: 'Synthetic Motor Oil', href: 'synthetic-motor-oil' },
+		{ title: 'Vengeance is Mine', href: 'vengeance-is-mine' }
+	];
 </script>
 
 <h1>Strudel Showcase Library</h1>
@@ -34,5 +42,19 @@
 		</p>
 	</section>
 
-	<section class="songlinks"></section>
+	<section class="songlinks">
+		{#each songs as song}
+			<a href={`/songs/${song.href}`} title={song.title}>{song.title}</a>
+		{/each}
+	</section>
 </div>
+
+<style>
+	.songlinks {
+		display: grid;
+		gap: 1rem;
+		padding: 1em;
+		border: 2px solid var(--app-text-color);
+		height: fit-content;
+	}
+</style>

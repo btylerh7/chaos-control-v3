@@ -1,8 +1,7 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
-	import { asset } from '$app/paths';
 	import Header from '$lib/components/Header.svelte';
-	const blackArmsUrl = asset('black-arms-resized.png');
+	import Navbar from '$lib/components/Navbar.svelte';
 
 	let { children } = $props();
 </script>
@@ -10,10 +9,35 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
-<Header />
-{@render children()}
+<div class="main-container">
+	<Header />
+	<Navbar />
+	<main>
+		{@render children()}
+	</main>
+</div>
 
 <style>
+	.main-container {
+		display: grid;
+		gap: 0.5em;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'header'
+			'nav'
+			'main';
+		@media (width > 550px) {
+			grid-template-areas:
+				'header header'
+				'nav main'
+				'nav main';
+		}
+	}
+	main {
+		grid-area: main;
+		border: var(--box-border);
+		padding-inline: 1em;
+	}
 	:global {
 		:root {
 			--app-background: #fafafa;
@@ -25,6 +49,7 @@
 			--link-color: var(--accent-color);
 			--border-radius: 0.5rem;
 			--auto-column-size: 250px;
+			--box-border: 2px solid var(--app-text-color);
 		}
 
 		*,
@@ -63,11 +88,11 @@
 			}
 
 			&:visited {
-				color: var(--app-text-color);
-
-				&:not(.collection-link) &:not(.navlink) {
-					color: var(--link-color);
+				&:has(.collection-link),
+				&:has(.navlink) {
+					color: var(--app-text-color);
 				}
+				color: var(--link-color);
 			}
 		}
 
@@ -107,6 +132,7 @@
 		.box-grid {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(var(--auto-column-size), 1fr));
+			gap: 1em;
 		}
 		@media (prefers-color-scheme: dark) {
 			:root {
