@@ -1,7 +1,7 @@
 <script lang="ts">
 	const pages: { href: string; title: string }[] = [
-		{ href: '/', title: 'Home' },
-		{ href: '/songs', title: 'Strudel Showcase' }
+		{ href: "/", title: "Home" },
+		{ href: "/songs", title: "Strudel Showcase" }
 	];
 </script>
 
@@ -13,20 +13,18 @@
 
 <style>
 	nav {
-		--auto-column-size: 250px;
+		display: flex;
 		height: fit-content;
-		width: fit-content;
 		grid-area: nav;
 		border: var(--box-border);
-		justify-content: 'center';
-		display: flex;
-		width: 100%;
+		justify-content: center;
+		width: fit-content;
 		@media (width > 500px) {
+			width: 100%;
 			display: flex;
-			flex-direction: 'column';
-			max-width: 75ch;
-			justify-content: 'flex-start';
-			align-items: 'flex-start';
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
 		}
 
 		& > a {
@@ -44,7 +42,7 @@
 				text-decoration: underline;
 				background-color: var(--accent-color);
 				color: white !important;
-				background-image: url('/black-arms-resized.png');
+				background-image: url("/black-arms-resized.png");
 				background-size: cover;
 				background-repeat: no-repeat;
 				background-position: center;

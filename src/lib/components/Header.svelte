@@ -30,6 +30,7 @@
 		@media (width > 550px) {
 			text-align: left;
 			grid-template-columns: 1fr 1fr;
+			gap: 3rem;
 		}
 		align-items: center;
 		justify-content: center;
@@ -37,9 +38,10 @@
 	img {
 		width: 100%;
 		max-width: 169px;
-		@media (width > 550px) {
-		}
 		justify-self: center;
+		@media (width > 550px) {
+			justify-self: end;
+		}
 	}
 	.title {
 		font-size: 3rem;
