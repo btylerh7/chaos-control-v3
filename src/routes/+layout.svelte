@@ -1,7 +1,7 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-	import Header from '$lib/components/Header.svelte';
-	import Navbar from '$lib/components/Navbar.svelte';
+	import favicon from "$lib/assets/favicon.svg";
+	import Header from "$lib/components/Header.svelte";
+	import Navbar from "$lib/components/Navbar.svelte";
 
 	let { children } = $props();
 </script>
@@ -23,14 +23,15 @@
 		gap: 0.5em;
 		grid-template-columns: 1fr;
 		grid-template-areas:
-			'header'
-			'nav'
-			'main';
+			"header"
+			"nav"
+			"main";
 		@media (width > 550px) {
+			grid-template-columns: 1fr 2fr;
 			grid-template-areas:
-				'header header'
-				'nav main'
-				'nav main';
+				"header header"
+				"nav main"
+				"nav main";
 		}
 	}
 	main {
@@ -117,7 +118,7 @@
 
 			&:hover {
 				cursor: pointer;
-				background-image: url('/black-arms-resized.png');
+				background-image: url("/black-arms-resized.png");
 				background-size: cover;
 			}
 		}
