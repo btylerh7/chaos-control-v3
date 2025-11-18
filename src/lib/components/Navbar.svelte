@@ -1,7 +1,8 @@
 <script lang="ts">
 	const pages: { href: string; title: string }[] = [
 		{ href: "/", title: "Home" },
-		{ href: "/songs", title: "Strudel Showcase" }
+		{ href: "/songs", title: "Strudel Showcase" },
+		{ href: "/collection", title: "Music Collection" }
 	];
 </script>
 
