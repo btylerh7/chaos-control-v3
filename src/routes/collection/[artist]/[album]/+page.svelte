@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Album from "$lib/components/collection/Album.svelte";
 	const { data } = $props();
+	const MdComp = data.description;
 </script>
 
 <Album
@@ -10,3 +11,5 @@
 	releaseDate={data.releaseDate}
 	urlPath={data.url}
 />
+
+<div></div>

@@ -10,3 +10,5 @@ export const album = sqliteTable("album", {
         cover: text("cover"),
         url: text("url")
 });
+
+

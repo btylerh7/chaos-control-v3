@@ -1,4 +1,14 @@
+<script lang="ts">
+	import Collection from "$lib/components/collection/Collection.svelte";
+
+	const { data } = $props();
+</script>
+
 <h1>My Music Library</h1>
+<h2>My Collection</h2>
+<Collection albums={data.albums} />
+
+<h2>My Music Story</h2>
 <p>
 	Fun fact about me: music has been a part of my life for as long as I can remember. My dad is a
 	musician, and he began <span class="bold"> teaching me piano when I was 6.</span>
