@@ -19,10 +19,13 @@
 <style>
 	section {
 		display: grid;
-		@media (width > 500px) {
+		@media (width > 700px) {
 			grid-template-columns: repeat(2, 1fr);
 			justify-content: center;
 			align-items: center;
+		}
+		@media (width > 900px) {
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 </style>

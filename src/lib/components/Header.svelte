@@ -10,45 +10,46 @@
 			<p class="tagline">Life is chaotic, write fun html instead</p>
 		</div>
 	</div>
+	<Navbar />
 </header>
 
 <style>
+	/* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
 	header {
 		display: grid;
-		/* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
-		align-items: "center";
-		gap: 1rem;
-		padding: 1rem;
-		border: var(--box-border);
-		grid-area: header;
-	}
-	.logo {
-		display: grid;
 		grid-template-columns: 1fr;
-		width: 100%;
-		text-align: center;
-		@media (width > 550px) {
-			text-align: left;
+		@media (width > 700px) {
 			grid-template-columns: 1fr 1fr;
-			gap: 3rem;
 		}
 		align-items: center;
+		border: var(--box-border);
+		padding: 1rem;
+	}
+	.logo {
+		display: flex;
+		align-items: center;
 		justify-content: center;
+		flex-direction: column;
+		text-align: center;
+		@media (width > 375px) {
+			flex-direction: row;
+			text-align: left;
+		}
+		@media (width > 700px) {
+			justify-content: flex-start;
+		}
+		gap: 1rem;
 	}
 	img {
 		width: 100%;
-		max-width: 169px;
-		justify-self: center;
-		@media (width > 550px) {
-			justify-self: end;
-		}
+		max-width: 100px;
 	}
 	.title {
-		font-size: 3rem;
+		font-size: 1.5rem;
 		font-weight: bold;
 		margin: 0;
 	}
 	.tagline {
-		font-size: 1.25rem;
+		font-size: 0.8rem;
 	}
 </style>

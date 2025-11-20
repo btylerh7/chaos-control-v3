@@ -8,7 +8,7 @@
 <a class="collection-link" href={`/collection/${urlPath}`}>
 	<article class="album" {title}>
 		<CdCover {title} {artist} {cover} />
-		<div>
+		<div class="metadata">
 			<h2>{title}</h2>
 			<p>{artist} - {releaseDate}</p>
 		</div>
@@ -34,10 +34,17 @@
 		padding: 1rem;
 		/* border-radius: 5px; */
 		border: 1px solid var(--text);
+		grid-template-rows: 3fr 1fr;
 		position: relative;
 
-		& div > * {
-			margin: 0;
+		& .metadata {
+			display: grid;
+			align-items: start;
+			border: 1px solid white;
+
+			& > * {
+				margin: 0;
+			}
 		}
 	}
 </style>
