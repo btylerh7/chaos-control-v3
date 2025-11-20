@@ -1,15 +1,30 @@
 <script lang="ts">
-	import Album from "$lib/components/collection/Album.svelte";
+	import CdCover from "$lib/components/collection/CdCover.svelte";
+	import Markdown from "$lib/components/collection/Markdown.svelte";
 	const { data } = $props();
-	const MdComp = data.description;
+	const { title, artist, cover, releaseDate, url, description } = data;
 </script>
 
-<Album
-	title={data.title}
-	artist={data.artist}
-	cover={data.cover}
-	releaseDate={data.releaseDate}
-	urlPath={data.url}
-/>
+<section>
+	<CdCover {artist} {title} {cover} />
+	<div class="metadata">
+		<h1>{title}</h1>
+		<p>Released by {artist}</p>
+		<p>Released on {releaseDate}</p>
+	</div>
+</section>
+<Markdown text={description} />
 
-<div></div>
+<style>
+	section {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		& h1 {
+			padding-top: 0.5em;
+			margin-bottom: 0.2em;
+		}
+		& p {
+			margin-block: 0;
+		}
+	}
+</style>

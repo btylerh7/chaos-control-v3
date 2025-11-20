@@ -3,6 +3,7 @@ import { db } from "$lib/server/db";
 import { album } from "$lib/server/db/schema";
 import { eq, and } from "drizzle-orm";
 import { compile } from 'mdsvex';
+import { asset } from "$app/paths";
 
 export const load: PageServerLoad = async ({ params, fetch }) => {
         const url = `${params.artist}/${params.album}`;
@@ -12,11 +13,10 @@ export const load: PageServerLoad = async ({ params, fetch }) => {
                 .where(eq(album.url, url));
         const firstAlbum = albumData[0];
         const name = firstAlbum.cover.split('.')[0]
-        const descriptionSrc = `/albums/${firstAlbum.artist}/${name}.md`;
-        const mdDesc = await fetch(descriptionSrc)
-        const descriptionFile = await mdDesc.text();
-        const description = await compile(descriptionFile);
-        console.log(description)
+        const descriptionSrc = asset(`/albums/${firstAlbum.artist}/${name}.md`);
+        const desc = await fetch(descriptionSrc);
+        const description = await desc.text();
+        console.log(desc)
         return {
                 title: firstAlbum.title,
                 artist: firstAlbum.artist,

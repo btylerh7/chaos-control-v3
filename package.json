@@ -36,6 +36,8 @@
 	},
 	"dependencies": {
 		"@strudel/repl": "^1.2.7",
-		"@strudel/web": "^1.2.6"
+		"@strudel/web": "^1.2.6",
+		"@types/marked": "^6.0.0",
+		"marked": "^17.0.1"
 	}
 }
