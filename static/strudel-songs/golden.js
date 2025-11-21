@@ -17,9 +17,13 @@ const drivingBass = n("0").struct("[x x x]*4")
 )
 .orbit(2);
 
-const piano = n("[0,2,4]").struct("<x x [x x] x>").sound("piano, gm_string_ensemble_1").lpf(1500)
+const piano = n("[0,2,4]").struct("<x x [x x] x>")
+.layer(
+  (x) => x.sound("piano").gain(1.2),
+  (x) => x.sound("gm_string_ensemble_1").lpf(3000).hpf(800).gain(0.75)
+)
 const pumpSynth = n("[0,2,4]").struct("x*6").layer(
-  (x) => x.sound("saw").add(note("0")).gain(.69),
+  (x) => x.sound("saw").add(note("0")).hpf(800).gain(.69),
   (x) => x.sound("sine").add(note("12"))
 ).orbit(2).decay(1.2).sustain(.5)
 const drums = stack(
@@ -45,7 +49,8 @@ const versePart1 = cat(
   n("[3 [ ~ ~ 5] [~ ~ ~] [ ~ 1 1 ]]"),
   n("[2 [~ ~ 7] [7] [~ 6 7]]"),
   n("6 _ 6  7 [~ 6] ~ [~ 6] ~ 6   1 ~ 5")
-);
+)
+  .scale("G:Major").scaleTranspose("<-1>")
 
 const versePart2 = cat(
   n("[~ ~ 5] [~ ~ 5 ] [ ~ ~ 1 ] [1 ~ 5]"),
@@ -57,11 +62,13 @@ const versePart2 = cat(
   n("[5 5 5] [5 4 3]"),
   n("[3 _ 2] [~] [~ ~ ~] [ ~ ]")
 )
+  .scale("G:Major").scaleTranspose("<-1>")
 
 const prechorus = cat(
   n("[-1 1 4 3] [-2 0 6 5] [3 5 [~ ~ 6] [ 5 4 4]] [ 3 _ _ 0]"),
-  n("[-1 1 4 3] [-2 0 6 5] [3 [~ ~ 3] 3 [5 ~ 5]] [ 5@2 [~ ~ 3] [3 ~ 6]]")
+  n("[-1 1 4 3] [-2 0 6 5] [3 [~ ~ 3] 3 [5 ~ 5]] [ 5@2 [~ ~ 11] [11 ~ 14]]")
 ).slow(4)
+  .scale("G:Major").scaleTranspose("<-1>")
 
 const chorus1 = cat(
   n("<[6 6 [6 ~ 3] [3 ~ 5]] [6 6 [8 ~ 7] [6 _ 5]]>"),
@@ -69,17 +76,17 @@ const chorus1 = cat(
   n("[[4 _ 3] ~ [4 5 5] [5 4 4]]"),
   n("[[4 _ 3] ~ [2 _ 3] [~ 1 _]]")
 )
+  .scale("G4:Major").scaleTranspose("<-1>")
 const chorus2 = cat(
   n("[-1 1 4 3] [-2 0 6 5] [3 5 9 [7 _ 8] ]  <[8 6 [~ ~ 1] 0] [8 6 _ ~]>"),
-).slow(4)
+).slow(4).scale("G4:Major").scaleTranspose("<-1>")
   
-console.log(chorus1)
 vocals: arrange(
   [8, versePart1.lpf(filterMuted)],
   [8, versePart2.lpf(filterMuted)],
   [8, prechorus.lpf(filterMuted)],
-  [8, chorus1.lpf(filterFull)],
-  [8, chorus2.lpf(filterFull)]
+  [8, chorus1.lpf(filterFull).hpf(800)],
+  [8, chorus2.lpf(filterFull).hpf(800)]
 )
   .layer(
     (x) => x.sound("triangle"),
@@ -90,7 +97,6 @@ vocals: arrange(
   .delayfeedback(.69)
   .sustain(1.2)
   .decay(.5)
-  .scale("G:Major").scaleTranspose("<-1>")
 
 backingTracks: arrange(
   [16, stack(

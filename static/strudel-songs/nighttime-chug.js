@@ -1,5 +1,6 @@
 // @title Nighttime Chug
 // @by Tyler
+// @written 2025-07-10
 
 samples('github:eddyflux/crate')
 samples('github:tidalcycles/Dirt-Samples')
