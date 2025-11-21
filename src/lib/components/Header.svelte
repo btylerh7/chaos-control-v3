@@ -22,7 +22,6 @@
 			grid-template-columns: 1fr 1fr;
 		}
 		align-items: center;
-		border: var(--box-border);
 		padding: 1rem;
 	}
 	.logo {

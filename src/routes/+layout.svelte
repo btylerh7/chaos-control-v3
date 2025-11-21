@@ -17,13 +17,16 @@
 
 <style>
 	.main-container {
+		background-color: var(--app-background);
 		display: flex;
 		flex-direction: column;
+		border: var(--box-border);
+		border-radius: 5px;
+		box-shadow: 0px 0px 18px var(--accent-color);
 		gap: 0.5em;
 	}
 	main {
 		grid-area: main;
-		border: var(--box-border);
 		padding-inline: 1em;
 	}
 	:global {
@@ -37,7 +40,9 @@
 			--link-color: var(--accent-color);
 			--border-radius: 0.5rem;
 			--auto-column-size: 250px;
-			--box-border: 2px solid var(--app-text-color);
+			--box-border: 2px solid hsl(from var(--accent-color) h 40% 30%);
+			--light-accent: hsl(from var(--accent-color) h 50% 30%);
+			--triangle-gradient: linear-gradient(45deg, black 50%, var(--light-accent));
 		}
 
 		*,
@@ -49,7 +54,10 @@
 		}
 
 		body {
-			background-color: var(--app-background);
+			/* background-color: var(--app-background); */
+
+			background: var(--triangle-gradient);
+			background-size: 10px 10px;
 			color: var(--app-text-color);
 			max-width: 1150px;
 			padding: 2em;
