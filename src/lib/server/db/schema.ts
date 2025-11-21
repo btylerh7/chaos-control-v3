@@ -1,14 +1,6 @@
-import { sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { pgTable, serial, integer } from "drizzle-orm/pg-core";
 
-export const album = sqliteTable("album", {
-        id: text("id")
-                .primaryKey()
-                .$defaultFn(() => crypto.randomUUID()),
-        title: text("title"),
-        artist: text("artist"),
-        releaseDate: text("release_date"),
-        cover: text("cover"),
-        url: text("url")
+export const user = pgTable("user", {
+	id: serial("id").primaryKey(),
+	age: integer("age")
 });
-
-

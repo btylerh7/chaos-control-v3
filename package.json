@@ -39,6 +39,7 @@
 		"@strudel/repl": "^1.2.7",
 		"@strudel/web": "^1.2.6",
 		"@types/marked": "^6.0.0",
-		"marked": "^17.0.1"
+		"marked": "^17.0.1",
+		"postgres": "^3.4.7"
 	}
 }
