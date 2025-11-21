@@ -2,7 +2,7 @@
 	import CdCover from "$lib/components/collection/CdCover.svelte";
 	import Markdown from "$lib/components/collection/Markdown.svelte";
 	const { data } = $props();
-	const { title, artist, releaseDate, url, description } = data;
+	const { title, artist, releaseDate, url, addedDate, description } = data;
 </script>
 
 <section>
@@ -10,7 +10,10 @@
 	<div class="metadata">
 		<h1>{title}</h1>
 		<p>Released by {artist}</p>
-		<p>Released on {releaseDate}</p>
+		<p>Released in {releaseDate}</p>
+		{#if addedDate}
+			<p>Added to collection on {addedDate}</p>
+		{/if}
 	</div>
 </section>
 <Markdown text={description} />

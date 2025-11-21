@@ -20,7 +20,8 @@ export const load: PageServerLoad = async ({ params, fetch }) => {
                 artist: firstAlbum.artist,
                 releaseDate: firstAlbum.releaseDate,
                 url: firstAlbum.url,
-                description: description
+                description: description,
+                addedDate: firstAlbum.addedDate
         }
 // const file = await fetch(`/strudel-songs/${params.song}.js`)
 // const song = await file.text()
