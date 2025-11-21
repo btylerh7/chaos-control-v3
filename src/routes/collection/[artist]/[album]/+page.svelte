@@ -2,11 +2,11 @@
 	import CdCover from "$lib/components/collection/CdCover.svelte";
 	import Markdown from "$lib/components/collection/Markdown.svelte";
 	const { data } = $props();
-	const { title, artist, cover, releaseDate, url, description } = data;
+	const { title, artist, releaseDate, url, description } = data;
 </script>
 
 <section>
-	<CdCover {artist} {title} {cover} />
+	<CdCover {artist} {title} />
 	<div class="metadata">
 		<h1>{title}</h1>
 		<p>Released by {artist}</p>

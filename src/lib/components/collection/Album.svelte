@@ -33,14 +33,12 @@
 		/* width: fit-content; */
 		padding: 1rem;
 		/* border-radius: 5px; */
-		border: 1px solid var(--text);
 		grid-template-rows: 3fr 1fr;
 		position: relative;
 
 		& .metadata {
 			display: grid;
 			align-items: start;
-			border: 1px solid white;
 
 			& > * {
 				margin: 0;

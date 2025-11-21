@@ -12,15 +12,12 @@ export const load: PageServerLoad = async ({ params, fetch }) => {
                 .from(album)
                 .where(eq(album.url, url));
         const firstAlbum = albumData[0];
-        const name = firstAlbum.cover.split('.')[0]
-        const descriptionSrc = asset(`/albums/${firstAlbum.artist}/${name}.md`);
+        const descriptionSrc = asset(`/albums/${firstAlbum.artist}/${firstAlbum.title}.md`);
         const desc = await fetch(descriptionSrc);
         const description = await desc.text();
-        console.log(desc)
         return {
                 title: firstAlbum.title,
                 artist: firstAlbum.artist,
-                cover: firstAlbum.cover,
                 releaseDate: firstAlbum.releaseDate,
                 url: firstAlbum.url,
                 description: description

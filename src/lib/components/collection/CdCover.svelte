@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { asset } from "$app/paths";
-	const { title, artist, cover } = $props();
-	const coverSrc = asset(`/albums/${artist}/${cover}`);
+	const { title, artist } = $props();
+	const coverSrc = asset(`/albums/${artist}/${title}.jpg`);
 </script>
 
 <div class="cd-wrapper">
