@@ -23,6 +23,7 @@
 		}
 		align-items: center;
 		padding: 1rem;
+		font-family: "Pixellari";
 	}
 	.logo {
 		display: flex;
@@ -50,5 +51,6 @@
 	}
 	.tagline {
 		font-size: 0.8rem;
+		font-weight: bold;
 	}
 </style>

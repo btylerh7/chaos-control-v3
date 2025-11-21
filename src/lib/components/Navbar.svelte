@@ -27,6 +27,7 @@
 
 		& > a {
 			text-decoration: none;
+			font-weight: bold;
 			color: var(--app-text-color) !important;
 			padding: 1rem 2rem;
 			@media (width > 550px) {

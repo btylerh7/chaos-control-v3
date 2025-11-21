@@ -30,6 +30,10 @@
 		padding-inline: 1em;
 	}
 	:global {
+		@font-face {
+			font-family: "Pixellari";
+			src: url("/fonts/Pixellari.ttf") format("truetype");
+		}
 		:root {
 			--app-background: #fafafa;
 			--app-text-color: black;
