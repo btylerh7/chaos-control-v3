@@ -30,11 +30,27 @@
 		padding-inline: 1em;
 	}
 	:global {
+		/* https://www.dafont.com/zacchary-dempsey-plante.d6765 */
 		@font-face {
 			font-family: "Pixellari";
 			src: url("/fonts/Pixellari.ttf") format("truetype");
 		}
+		/* https://www.fontsquirrel.com/fonts/Aaargh */
+		@font-face {
+			font-family: "Aaargh";
+			src:
+				url(/fonts/aaargh-webfont.woff2) format("woff2"),
+				url(/fonts/aaargh-webfont.woff) format("woff");
+		}
+		@font-face {
+			font-family: "Fira Code";
+			src:
+				url(/fonts/FiraCode-Regular..woff2) format("woff2"),
+				url(/fonts/FiraCode-Regular..woff) format("woff");
+		}
+
 		:root {
+			--main-font: "Fira Code";
 			--app-background: #fafafa;
 			--app-text-color: black;
 
@@ -66,6 +82,8 @@
 			max-width: 1150px;
 			padding: 2em;
 			margin: auto;
+			font-family: var(--main-font);
+			font-size: 14px;
 		}
 
 		h1,

@@ -21,7 +21,12 @@
 <style>
 	section {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 1fr;
+		text-align: center;
+		@media (width > 700px) {
+			grid-template-columns: 1fr 2fr;
+			text-align: left;
+		}
 		& h1 {
 			padding-top: 0.5em;
 			margin-bottom: 0.2em;

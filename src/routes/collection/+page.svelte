@@ -5,7 +5,6 @@
 </script>
 
 <h1>My Music Library</h1>
-<h2>My Collection</h2>
 <Collection albums={data.albums} />
 
 <h2>My Music Story</h2>
