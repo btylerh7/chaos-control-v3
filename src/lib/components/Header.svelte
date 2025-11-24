@@ -6,7 +6,7 @@
 	<div class="logo">
 		<img src={"/ChaosEmeraldRed.png"} alt="A red chaos emerald graphic" />
 		<div class="header-text">
-			<p class="title">Chaos Control</p>
+			<p class="title" style="">CHAOS CONTROL</p>
 			<p class="tagline">Life is chaotic, write fun html instead</p>
 		</div>
 	</div>
